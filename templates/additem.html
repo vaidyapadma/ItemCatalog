@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h3>Add New menu Item </h3> 
+        <form action="{{url_for('newItem')}}" method='POST'>
+            <label>Name of Item:</label>
+            <input name='name' type='text'  required>
+            <label>Description  of Item:</label>
+            <input name='des' type='text' >
+            <label>Select Catagory for Item:</label>
+            <select name="cat">
+                    {% for cat in catagory %}
+                     <option value={{cat.name}}>{{cat.name}} </option>
+                     {% endfor %}
+            </select>
+            <input name='submit' value='Add New Item' type='submit'>
+
+
+
+        </form>
+        
+    </body>
+</html>

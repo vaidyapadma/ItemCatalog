@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="top-menu">
+		<p>Catalog App </p>
+		<div class="col-md-8 " >
+			
+		</div>
+		<div class="col-md-4 ">
+			<a href="{{url_for('showLogin')}}">Click Here to Log in </a>
+		</div>
+	</div>
+	
+	
+
+	<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+
+	
+	<div class="col-xs-4">
+	 <h4>Catagories</h4>
+	 {% for cat in catagory %}
+	
+		<a href = "{{url_for('showMenu', catagory_name = cat.name)}}">
+			<div class="row">
+				
+					<div class=" restaurant-list">
+						<h3>{{cat.name}}</h3>
+					</div>
+					
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+	 {% endfor %}
+   </div>
+   <div class="col-xs-2"></div>
+	
+   <div class="col-xs-6">
+     <h4>Latest Items</h4>
+	 {% for item in items %}
+	
+		
+			<div class="row">
+				
+					<div class="restaurant-list">
+						<h3>{{item.name}}({{item.category.name}})</h3>
+					</div>
+					
+				<div class="col-md-1"></div>
+			</div>
+		
+	 {% endfor %}
+   </div>
+
+{% endblock %}

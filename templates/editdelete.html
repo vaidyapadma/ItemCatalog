@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	
+	
+<div class = 'flash'>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+	
+	
+	
+		
+				
+				
+			<div class="col-md-10">
+				
+					{% for i in items %}
+					  
+							<div class=" restaurant-list">
+                                <h3>{{i.name}}</h3>
+                                <p>{{i.description}}</p>
+								
+								<a href="{{url_for('editItem',item_name=i.name)}}">Edit</a>|<a href="{{url_for('deleteItem',item_name=i.name)}}">Delete</a>
+							</div>
+							
+						
+					{% endfor %}
+			</div>
+			
+			
+			<div class="col-md-1"></div>
+		</div>
+	
+{% endblock %}

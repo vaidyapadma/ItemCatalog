@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost:5000/catalog/Shin%20Pads/edit -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="./edit_files/css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./edit_files/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./edit_files/styles.css">
+	</head>
+	<body>
+		<div class="container">
+			
+<!-- <div class="row top-menu">
+	<div class="col-md-6">
+		<a href="/catalog/">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Show All Catagories
+		</a>
+	</div>
+	<div class="col-md-6 text-right">
+					
+			<a href="/disconnect">Logout </a>
+			
+		
+	</div>
+</div> -->
+<div class="top-menu">
+	<p>Catalog App </p>
+	<div class="col-md-8 ">
+		
+	</div>
+	<div class="col-md-4 ">
+			
+			<a href="http://localhost:5000/disconnect">Logout </a>
+			
+	</div>
+</div>
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit  Item</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="http://localhost:5000/catalog/Shin%20Pads/edit" method="post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type="text" maxlength="100" class="form-control" name="name" value="Shin Pads">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description">Block that point shot with confidence with Hockey Shin Guards</textarea>
+
+					<input type="hidden" name="cat" value="Hockey">
+					<button type="submit" class="btn btn-default" id="submit">
+					<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+					<a href="http://localhost:5000/catalog/">
+						<button class="btn btn-default delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+
+		</div>
+	
+</body></html>

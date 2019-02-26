@@ -1,0 +1,58 @@
+
+<!-- saved from url=(0027)http://localhost:5000/login -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+      <script src="./login_files/cb=gapi.loaded_1" async=""></script><script src="./login_files/cb=gapi.loaded_0" async=""></script><script src="./login_files/jquery.min.js.download">
+      </script>
+    
+    <script src="./login_files/platform.js.download" gapi_processed="true"> </script>
+    
+    <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+    
+           </head>
+    <body>
+        
+        <div id="signinButton">
+            <div id="___signin_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 116px; height: 36px; position: relative;"><button style="opacity: 0; z-index: 10000; left: 0px; top: 0px; position: absolute; cursor: pointer; outline: 0px; width: 116px; height: 36px;">Sign in with Google</button><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 116px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 36px;" tabindex="0" vspace="0" width="100%" id="I0_1550414442851" name="I0_1550414442851" src="./login_files/signin.html" data-gapiattached="true" title="Sign in with Google"></iframe></div>
+          </div>
+
+          <div id="result"></div>
+          <script>
+                function signInCallback(authResult) {
+                  if (authResult['code']) {
+                    // Hide the sign-in button now that the user is authorized
+                    $('#signinButton').attr('style', 'display: none');
+                    // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+                    $.ajax({
+                      type: 'POST',
+                      url: '/gconnect?state=NFW9P6HXL6TOQGRRJQ4HQDPIDHK6JEEI',
+                      processData: false,
+                      data: authResult['code'],
+                      contentType: 'application/octet-stream; charset=utf-8',
+                      success: function(result) {
+                        // Handle or verify the server response if necessary.
+                        if (result) {
+                          $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+                         setTimeout(function() {
+                          window.location.href = "/";
+                         }, 4000);
+                          
+                      } else if (authResult['error']) {
+                    console.log('There was an error: ' + authResult['error']);
+                  } else {
+                        $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                         }
+                      }
+                      
+                  }); } }
+                </script>
+
+
+              
+
+  
+
+  
+
+                
+    <iframe name="oauth2relay668710360" id="oauth2relay668710360" src="./login_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>
